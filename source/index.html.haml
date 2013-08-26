@@ -1,0 +1,39 @@
+---
+title: kpricorn.org
+---
+
+.row.logo-container
+  .columns.small-10.small-centered.medium-4.large-4
+    .logo
+
+.row
+  %hr/
+
+.row.header-container
+  .columns.small-10.small-centered
+    %h1 kpricorn
+
+=link_to 'http://github.com/sdecastelberg' do
+  .findme-container
+    .key.columns
+      .img.github
+    .value.columns http://github.com/sdecastelberg
+=link_to 'http://twitter.com/sdecastelberg' do
+  .findme-container
+    .key.columns
+      .img.twitter
+    .value.columns http://twitter.com/sdecastelberg
+=link_to 'http://facebook.com/sdecastelberg' do
+  .findme-container
+    .key.columns
+      .img.fb
+    .value.columns http://facebook.com/sdecastelberg
+.findme-container
+  .key.columns
+    .img.email
+  .value.columns
+    = mail_to 'sebu@kpricorn.org'
+
+.row.footer-container
+  %hr/
+  .columns.small-12 Copyright © 2011-2013. All Rights Reserved.

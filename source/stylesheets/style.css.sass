@@ -1,0 +1,97 @@
+$red: #df6662
+$blue: #50ACE0
+$green: #70c4ae
+$darkblue: #2b3e50
+$yellow: #E1C165
+$grey: #7c8180
+
+.index
+  margin-top: 2em
+
+  h1
+    text-align: center
+  .logo-container
+    padding: 2em
+    .logo
+      -webkit-animation-name: pop-in
+      -webkit-animation-duration: .9s
+      margin: auto
+      width: 100%
+      padding-bottom: 100%
+      border-radius: 100%
+      background-color: $yellow
+      background-image: image-url('logo.png')
+      background-image: none, inline-image('logo.svg')
+      background-repeat: no-repeat
+      background-size: auto 100%
+  .findme-container
+    margin-top: 1em
+    margin-bottom: 1em
+    .key, .value
+      height: 3em
+      line-height: 3em
+    .key
+      .img
+        height: 100%
+        width: 3em
+        border-radius: 1.5em
+        background-color: white
+        background-position: center
+        background-repeat: no-repeat
+        background-size: contain
+        &.github
+          background-image: image-url('github.png')
+          background-image: none, inline-image('github.svg')
+        &.twitter
+          background-image: image-url('twitter.png')
+          background-image: none, inline-image('twitter.svg')
+        &.fb
+          background-image: image-url('fb.png')
+          background-image: none, inline-image('fb.svg')
+        &.email
+          background-image: image-url('email.png')
+          background-image: none, inline-image('email.svg')
+
+  .footer-container
+    padding-top: 3em
+    padding-bottom: 5em
+    text-align: center
+    color: $grey
+
+.index
+  .findme-container
+    +grid-row
+    padding-bottom: 1em
+    .value, .key
+      +grid-column(12)
+    .value
+      text-align: center
+    .key
+      .img
+        margin-left: auto
+        margin-right: auto
+
+@-webkit-keyframes pop-in
+  from
+    -webkit-transform: scale(0)
+    opacity: 0
+  50%
+    -webkit-transform: scale(0)
+    opacity: 0
+  82.5%
+    -webkit-transform: scale(1.03)
+    -webkit-animation-timing-function: ease-out
+    opacity: 1
+  to
+    -webkit-transform: scale(1)
+
+@media #{$small}
+  .index
+    .findme-container
+      .value, .key
+        +grid-column(6)
+      .value
+        text-align: left
+      .key
+        .img
+          float: right
