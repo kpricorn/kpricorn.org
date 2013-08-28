@@ -77,3 +77,11 @@ configure :build do
   # Or use a different image path
   # set :http_path, "/Content/images/"
 end
+
+activate :deploy do |deploy|
+  deploy.method   = :ftp
+  deploy.host     = "ftp.kpricorn.org"
+  deploy.user     = "ftp1109386-sdecaste"
+  deploy.password = File.read("#{Dir.home}/.middleman-ftp/kpricorn.org") rescue ""
+  deploy.path     = "/kpricorn.org"
+end
