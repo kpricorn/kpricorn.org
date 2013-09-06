@@ -78,10 +78,8 @@ configure :build do
   # set :http_path, "/Content/images/"
 end
 
-activate :deploy do |deploy|
-  deploy.method   = :ftp
-  deploy.host     = "ftp.kpricorn.org"
-  deploy.user     = "ftp1109386-sdecaste"
-  deploy.password = File.read("#{Dir.home}/.middleman-ftp/kpricorn.org") rescue ""
-  deploy.path     = "/kpricorn.org"
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket      = 'galleria-rdc.ch'
+  s3_sync.region      = 'eu-west-1'
+  s3_sync.prefer_gzip = true
 end
