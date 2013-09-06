@@ -79,7 +79,7 @@ configure :build do
 end
 
 activate :s3_sync do |s3_sync|
-  s3_sync.bucket      = 'galleria-rdc.ch'
+  s3_sync.bucket      = 'kpricorn.org'
   s3_sync.region      = 'eu-west-1'
   s3_sync.prefer_gzip = true
 end
