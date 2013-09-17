@@ -7,3 +7,4 @@ gem "zurb-foundation"
 gem "middleman-livereload"
 gem "middleman-deploy"
 gem "middleman-s3_sync"
+gem "middleman-google-analytics", github: 'kpricorn/middleman-google-analytics', branch: 'features/domain_name_and_allow_linker'
