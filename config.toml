@@ -1,4 +1,4 @@
 baseURL = "https://kpricorn.org/"
 languageCode = "en-us"
 title = "kpricorn.org"
-theme = "ananke"
+theme = "hugo-whisper-theme"
