@@ -1,4 +1,37 @@
-baseURL = "https://kpricorn.org/"
+baseURL = "kpricorn.com"
 languageCode = "en-us"
-title = "kpricorn.org"
+title = "kpricorn.com"
 theme = "hugo-whisper-theme"
+
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsUseClasses = true
+
+summaryLength = 30
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "CV"
+    url = "/resume"
+    weight = 2
+
+[params]
+  google_analytics_id=""
+  homepage_intro = 'Whisper is a documentation theme built with Hugo. The design and functionality is intentionally minimal.'
+  homepage_button_link = '/resume'
+  homepage_button_text = 'See my resume'
+
+  [params.homepage_meta_tags]
+    meta_description = "Personal website with portfolio, blog and other useless stuff."
+    meta_og_title = "Personal website"
+    meta_og_type = "website"
+    meta_og_url = "https://kpricorn.org"
+    meta_og_description = "Personal website with portfolio, blog and other useless stuff."
+
+  [params.logo]
+      mobile = "/images/logo-mobile.svg"
+      standard  = "/images/logo.svg"
