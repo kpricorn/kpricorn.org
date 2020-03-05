@@ -1,10 +1,10 @@
 ---
-title: 'letshelp.ch - Swisscom'
+title: 'Swisscom Crowdfunding'
 date: 2019-02-11T19:27:37+10:00
 weight: 2
 ---
 
-Swisscom crowdfunding marketplace letshelp.ch
+Swisscom crowdfunding marketplace letshelp.ch and Crowdfunding Platform as a service
 
 <!--more-->
 
@@ -27,8 +27,8 @@ Swisscom crowdfunding marketplace letshelp.ch
 
 ## Links
 
-* [Shutdown notice](https://www.swisscom.ch/de/about/medien/infos-und-fakten/20180116-spendenplattform-letshelp-stellt-betrieb-ein.html)
-* [Launch Press release](https://www.swisscom.ch/de/about/news/2014/09/20140901-MM-Crowdfunding.html)
+* <a href="https://www.swisscom.ch/de/about/medien/infos-und-fakten/20180116-spendenplattform-letshelp-stellt-betrieb-ein.html" target="_blank">Shutdown notice</a>
+* <a href="https://www.swisscom.ch/de/about/news/2014/09/20140901-MM-Crowdfunding.html" target="_blank">Launch Press release</a>
 
 ## Screenshots
 

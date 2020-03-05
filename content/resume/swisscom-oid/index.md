@@ -1,5 +1,5 @@
 ---
-title: 'Online Identification - Swisscom'
+title: 'Swisscom Online Identification'
 date: 2019-02-11T19:27:37+10:00
 weight: 1
 ---
@@ -34,4 +34,4 @@ Simple digital onboarding
 
 ## Links
 
-[Product Page](https://www.swisscom.ch/en/business/enterprise/offer/banking/digital-identification-signing.html)
+<a href="https://www.swisscom.ch/en/business/enterprise/offer/banking/digital-identification-signing.html" target="_blank">Product Page</a>

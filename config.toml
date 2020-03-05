@@ -1,6 +1,6 @@
-baseURL = "kpricorn.com"
+baseURL = "https://kpricorn.github.io"
 languageCode = "en-us"
-title = "kpricorn.com"
+title = "kpricorn.org"
 theme = "hugo-whisper-theme"
 
 pygmentsCodeFences = true
@@ -35,3 +35,6 @@ summaryLength = 30
   [params.logo]
       mobile = "/images/logo-mobile.svg"
       standard  = "/images/logo.svg"
+
+[markup.goldmark.renderer]
+unsafe= true
