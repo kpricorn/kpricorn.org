@@ -25,10 +25,12 @@ summaryLength = 30
   homepage_button_text = 'See my resume'
 
   [params.homepage_meta_tags]
-    meta_og_title = "Personal website"
+    meta_description = ""
+    meta_og_description = "Personal website with portfolio, blog and other useless stuff."
+    meta_og_title = "kpricorn - Sebastian de Castelberg"
     meta_og_type = "website"
     meta_og_url = "https://kpricorn.org"
-    meta_og_description = "Personal website with portfolio, blog and other useless stuff."
+    meta_og_image = "/me.jpg"
 
   [params.logo]
       mobile = "/images/logo-mobile.svg"
