@@ -25,7 +25,7 @@ summaryLength = 30
   homepage_button_text = 'See my resume'
 
   [params.homepage_meta_tags]
-    meta_description = ""
+    meta_description = "Personal website with portfolio, blog and other useless stuff."
     meta_og_description = "Personal website with portfolio, blog and other useless stuff."
     meta_og_title = "kpricorn - Sebastian de Castelberg"
     meta_og_type = "website"
