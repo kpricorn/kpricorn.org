@@ -1,6 +1,11 @@
 ---
-title: 'Sebastian de Castelberg - @kpricorn'
+title: 'kpricorn'
 date: 2018-11-28T15:14:39+10:00
 ---
 
-Software Engineer with strong knowledge of Back-end and Web API Development, Scalability and Information Retrieval. I am a strong believer in Agile Practices and Test Driven Development and always on the lookout for new exciting technologies and ideas.
+### Sebastian de Castelberg
+
+Passionate and polyglot software engineer and pragmatic programmer with 15+ years experience in full-stack development and infrastructure automation.  
+Autodidact and problem solver.  
+Mountain runner and skier.  
+Loves Vim and Linux.

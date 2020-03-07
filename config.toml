@@ -25,7 +25,6 @@ summaryLength = 30
   homepage_button_text = 'See my resume'
 
   [params.homepage_meta_tags]
-    meta_description = "Personal website with portfolio, blog and other useless stuff."
     meta_og_title = "Personal website"
     meta_og_type = "website"
     meta_og_url = "https://kpricorn.org"
