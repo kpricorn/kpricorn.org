@@ -15,13 +15,12 @@ summaryLength = 30
     weight = 1
 
 [[menu.main]]
-    name = "CV"
+    name = "Resume"
     url = "/resume"
     weight = 2
 
 [params]
   google_analytics_id=""
-  homepage_intro = 'Whisper is a documentation theme built with Hugo. The design and functionality is intentionally minimal.'
   homepage_button_link = '/resume'
   homepage_button_text = 'See my resume'
 
@@ -37,4 +36,4 @@ summaryLength = 30
       standard  = "/images/logo.svg"
 
 [markup.goldmark.renderer]
-unsafe= true
+  unsafe= true

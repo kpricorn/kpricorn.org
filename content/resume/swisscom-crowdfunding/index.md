@@ -32,3 +32,4 @@ Swisscom crowdfunding marketplace letshelp.ch and Crowdfunding Platform as a ser
 
 ## Screenshots
 
+![letshelp.ch screenshot](printscreen_letshelp_ch-1920x1080.jpg)

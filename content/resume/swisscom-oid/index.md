@@ -8,7 +8,7 @@ Simple digital onboarding
 
 <!--more-->
 
-## Involvement
+## My contribution
 
 * Designed a SaaS web application for financial intermediaries to fully automate customer online identification
 * Consulted with product management, security and compliance teams to identify key requirements and decomposed feature sets for implementation and integration
