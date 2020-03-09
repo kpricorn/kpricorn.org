@@ -8,8 +8,6 @@ Swisscom crowdfunding marketplace letshelp.ch and Crowdfunding Platform as a ser
 
 <!--more-->
 
-![letshelp.ch logo](visual_wide_blue_transparent.png)
-
 * Designed and implemented a white-label crowdfunding platform and marketplaces
 * Planned and coordinated customization of white-label services
 * Automated digital identification and signing product release process
@@ -32,4 +30,4 @@ Swisscom crowdfunding marketplace letshelp.ch and Crowdfunding Platform as a ser
 
 ## Screenshots
 
-![letshelp.ch screenshot](printscreen_letshelp_ch-1920x1080.jpg)
+![letshelp.ch screenshot](letshelp-ebike-ambulanz.png)

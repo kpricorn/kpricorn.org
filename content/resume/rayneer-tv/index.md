@@ -25,6 +25,5 @@ integration.
 * Node.js
 * Redis
 * HLS
-* Node.js
 * Zencoder
 * Reinforcement learning, Machine learning
