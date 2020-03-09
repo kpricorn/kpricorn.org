@@ -11,4 +11,4 @@ Passionate and polyglot software engineer and pragmatic programmer with 15+ year
 Autodidact and problem solver.  
 Mountain runner and skier.  
 Loves Vim and Linux.  
-<span style="font-family: apple color emoji,segoe ui emoji,noto color emoji,android emoji,emojisymbols,emojione mozilla,twemoji mozilla,segoe ui symbol;">👪</a>
+<span style="font-family: apple color emoji,segoe ui emoji,noto color emoji,android emoji,emojisymbols,emojione mozilla,twemoji mozilla,segoe ui symbol;">👨‍👩‍👦</a>
