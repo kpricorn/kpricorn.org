@@ -10,11 +10,11 @@ Simple digital onboarding
 
 ## My contribution
 
-* Designed a SaaS web application for financial intermediaries to fully automate customer online identification
-* Consulted with product management, security and compliance teams to identify key requirements and decomposed feature sets for implementation and integration
-* Coordinated and supervised online identification product development in a development team
+* Designed a SaaS web application that enabled financial intermediaries to automate fully their online customer identification procedures
+* Consulted with the product management, security, and compliance teams to identify key requirements and decomposed feature sets for implementation and integration
+* Coordinated and supervised development of online identification product in a development team
 * Set up and maintained automated acceptance test suites
-* Planned and coordinated integration of vendor software and in-housing of third-party infrastructure
+* Planned and coordinated integration of vendor software and taking in third-party infrastructure
 * Set up and maintained CI/CD pipeline
 
 ## Technologies
@@ -22,11 +22,11 @@ Simple digital onboarding
 * PHP
 * Symfony
 * PostgreSQL
-* WebRTC
-* S3
+* WebRTC / TURN (coturn)
+* MinIO High Performance S3-compatible Object Storage
 * REST
 * Codeception
-* Chromedriver
+* ChromeDriver
 * Jenkins
 * Docker, Docker Compose
 * OpenShift

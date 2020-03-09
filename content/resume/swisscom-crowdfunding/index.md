@@ -30,4 +30,6 @@ Swisscom crowdfunding marketplace letshelp.ch and Crowdfunding Platform as a ser
 
 ## Screenshots
 
-![letshelp.ch screenshot](letshelp-ebike-ambulanz.png)
+<div class=shadow-lg p-3 mb-5 bg-white">
+<img alt="letshelp.ch screenshot" src="letshelp-tierpark-goldau.png">
+<div>
