@@ -1,3 +1,44 @@
-<svg width="136" height="190" viewBox="0 0 136 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M10 0C4.47714 0 0 4.47714 0 10V96.3398L95.0482 0H10ZM133.608 3.51001L55.1521 83.6993L135.985 180.554C135.995 180.371 136 180.186 136 180V10C136 7.52319 135.1 5.2567 133.608 3.51001ZM102.353 190L32.0819 106.025L0 136.395V180C0 185.523 4.47714 190 10 190H102.353Z" fill="#FF5437"/>
+<svg width="148" height="192" viewBox="0 0 148 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="8" cy="8" r="8" fill="#FF5437"/>
+<circle cx="8" cy="30" r="8" fill="#FF5437"/>
+<circle cx="8" cy="52" r="8" fill="#FF5437"/>
+<circle cx="8" cy="74" r="8" fill="#FF5437"/>
+<circle cx="8" cy="96" r="8" fill="#FF5437"/>
+<circle cx="8" cy="162" r="8" fill="#FF5437"/>
+<circle cx="8" cy="184" r="8" fill="#FF5437"/>
+<circle cx="30" cy="8" r="8" fill="#FF5437"/>
+<circle cx="30" cy="30" r="8" fill="#FF5437"/>
+<circle cx="30" cy="52" r="8" fill="#FF5437"/>
+<circle cx="30" cy="74" r="8" fill="#FF5437"/>
+<circle cx="30" cy="140" r="8" fill="#FF5437"/>
+<circle cx="30" cy="162" r="8" fill="#FF5437"/>
+<circle cx="30" cy="184" r="8" fill="#FF5437"/>
+<circle cx="52" cy="8" r="8" fill="#FF5437"/>
+<circle cx="52" cy="30" r="8" fill="#FF5437"/>
+<circle cx="52" cy="52" r="8" fill="#FF5437"/>
+<circle cx="52" cy="140" r="8" fill="#FF5437"/>
+<circle cx="52" cy="162" r="8" fill="#FF5437"/>
+<circle cx="52" cy="184" r="8" fill="#FF5437"/>
+<circle cx="74" cy="8" r="8" fill="#FF5437"/>
+<circle cx="74" cy="30" r="8" fill="#FF5437"/>
+<circle cx="74" cy="96" r="8" fill="#FF5437"/>
+<circle cx="74" cy="162" r="8" fill="#FF5437"/>
+<circle cx="74" cy="184" r="8" fill="#FF5437"/>
+<circle cx="96" cy="8" r="8" fill="#FF5437"/>
+<circle cx="96" cy="74" r="8" fill="#FF5437"/>
+<circle cx="96" cy="96" r="8" fill="#FF5437"/>
+<circle cx="96" cy="118" r="8" fill="#FF5437"/>
+<circle cx="96" cy="184" r="8" fill="#FF5437"/>
+<circle cx="118" cy="52" r="8" fill="#FF5437"/>
+<circle cx="118" cy="74" r="8" fill="#FF5437"/>
+<circle cx="118" cy="96" r="8" fill="#FF5437"/>
+<circle cx="118" cy="118" r="8" fill="#FF5437"/>
+<circle cx="118" cy="140" r="8" fill="#FF5437"/>
+<circle cx="140" cy="30" r="8" fill="#FF5437"/>
+<circle cx="140" cy="52" r="8" fill="#FF5437"/>
+<circle cx="140" cy="74" r="8" fill="#FF5437"/>
+<circle cx="140" cy="96" r="8" fill="#FF5437"/>
+<circle cx="140" cy="118" r="8" fill="#FF5437"/>
+<circle cx="140" cy="140" r="8" fill="#FF5437"/>
+<circle cx="140" cy="162" r="8" fill="#FF5437"/>
 </svg>
