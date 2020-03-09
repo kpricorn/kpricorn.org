@@ -25,8 +25,8 @@ Swisscom crowdfunding marketplace letshelp.ch and Crowdfunding Platform as a ser
 
 ## Links
 
-* <a href="https://www.swisscom.ch/de/about/medien/infos-und-fakten/20180116-spendenplattform-letshelp-stellt-betrieb-ein.html" target="_blank">Shutdown notice</a>
 * <a href="https://www.swisscom.ch/de/about/news/2014/09/20140901-MM-Crowdfunding.html" target="_blank">Launch Press release</a>
+* <a href="https://www.swisscom.ch/de/about/medien/infos-und-fakten/20180116-spendenplattform-letshelp-stellt-betrieb-ein.html" target="_blank">Shutdown notice</a>
 
 ## Screenshots
 
