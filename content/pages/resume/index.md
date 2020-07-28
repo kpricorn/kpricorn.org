@@ -3,6 +3,8 @@ title: 'Resume'
 weight: 1
 ---
 
+<img alt="Resume..." src="resume.jpg">
+
 # Resume
 
 Software Engineer with strong knowledge of back-end and web API development,
