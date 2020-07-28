@@ -1,0 +1,18 @@
+baseURL = "https://kpricorn.org"
+languageCode = "en-us"
+title = "kpricorn"
+theme = "book"
+
+googleAnalytics = "UA-23927429-1"
+enableGitInfo = true
+
+bookCollapseSection = true
+
+[params]
+  BookLogo = 'logo.svg'
+  BookRepo = 'https://github.com/kpricorn/kpricorn.org'
+  BookSearch = true
+  BookSection = 'pages'
+
+[markup.goldmark.renderer]
+  unsafe= true
