@@ -10,7 +10,7 @@ practices and test driven development and always on the lookout for new
 exciting technologies and ideas.
 
 
-<a class="button button-primary mb-2" href="20200727_cv_sebastian_decastelberg.pdf">Download my CV</a>
+<a class="button button-primary mb-2" href="20200728_resume_sebastian_decastelberg.pdf">Download my resume</a>
 
 
 ### Selected projects
