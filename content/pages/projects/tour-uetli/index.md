@@ -28,6 +28,7 @@ The COVID-19 compatible trail running stage race Tour d'Uetli on Zürich's local
 ## Links
 
 * [tour-uetli.ch](https://tour-uetli.ch)
+* [les-cols-de-zurich.ch](https://les-cols-de-zurich.ch)
 * [tour-heidiland.ch](https://tour-heidiland.ch)
 * [tour-muenchen.de](https://tour-muenchen.de)
 * [tour-heidelberg.de](https://tour-heidelberg.de)
