@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sebastian de Castelberg · kpricorn</title>
+<meta name="description" content="Software engineer in Zürich. Building LaceUp. Runs up mountains.">
+<meta name="theme-color" content="#f3efe8">
+<meta property="og:title" content="Sebastian de Castelberg">
+<meta property="og:description" content="Software engineer in Zürich. Building LaceUp. Runs up mountains.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kpricorn.org/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://kpricorn.org/">
+<style>
+:root{
+  --paper:#f3efe8;
+  --ink:#38342f;
+  --mute:#8c857b;
+  --line:#e3ddd3;
+  --coral:#efb6a5;
+  --coral-deep:#d98f7a;
+  --sage:#c6d6c0;
+  --sky:#cfdbe6;
+  --butter:#f4e4b3;
+  --lilac:#d8d1e5;
+  --sand:#e6d9c8;
+  --rose:#eccbd0;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{background:var(--paper);color:var(--ink);-webkit-text-size-adjust:100%}
+body{
+  margin:0;min-height:100svh;
+  font:400 17px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  letter-spacing:-.005em;
+  display:flex;flex-direction:column;
+  overflow-x:hidden;
+}
+/* matte paper grain */
+body::before{
+  content:"";position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .28 0 0 0 0 .25 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--butter);color:var(--ink)}
+
+.wrap{width:min(1080px,100% - 2rem);margin-inline:auto}
+
+header{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.25rem 0;
+}
+.brand{display:flex;align-items:center;gap:.8rem;font-weight:500;letter-spacing:-.01em}
+.brand small{display:block;font-weight:400;color:var(--mute);font-size:.85em;letter-spacing:0}
+.k{width:30px;height:auto;overflow:visible;fill:var(--coral-deep);color:var(--coral-deep)}
+.k circle{
+  fill:currentColor;
+  animation:assemble 1.4s var(--ease) both;
+  animation-delay:calc(var(--i) * 32ms + 150ms);
+  transition:transform .9s var(--ease);
+}
+@keyframes assemble{from{transform:translate(var(--dx),var(--dy));opacity:0}}
+.brand:hover .k circle{transform:translate(calc(var(--dx) * .18),calc(var(--dy) * .18))}
+.loc{color:var(--mute);font-size:.95rem}
+
+/* hero */
+.hero{padding:clamp(2.5rem,8vw,6rem) 0 clamp(1rem,3vw,2rem);position:relative;z-index:2}
+h1{
+  margin:0 0 1.25rem;
+  font-size:clamp(2.4rem,7.2vw,5.4rem);
+  line-height:1.02;font-weight:500;letter-spacing:-.035em;
+  max-width:14ch;
+}
+h1 em{
+  font-style:normal;color:var(--mute);font-weight:400;
+  display:block;
+}
+h1 .hi{
+  background:linear-gradient(transparent 62%,var(--butter) 62%,var(--butter) 92%,transparent 92%);
+  padding:0 .08em;margin:0 -.08em;
+}
+.lede{max-width:46ch;font-size:clamp(1.05rem,1.6vw,1.25rem);color:#5a554e;margin:0 0 2rem}
+.lede b{font-weight:500;color:var(--ink)}
+
+.links{display:flex;flex-wrap:wrap;gap:.6rem;padding:0;margin:0;list-style:none}
+.links a{
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.55rem .95rem;border-radius:999px;
+  background:#fff8;border:1px solid var(--line);
+  font-size:.95rem;font-weight:500;
+  transition:background .5s var(--ease),transform .5s var(--ease),border-color .5s;
+}
+.links a:hover,.links a:focus-visible{transform:translateY(-2px);border-color:transparent;outline:none}
+.links a i{width:9px;height:9px;border-radius:50%;background:var(--c,var(--coral));display:inline-block}
+.links a:hover{background:var(--c,var(--coral))}
+
+/* the scene */
+.scene{margin:0;position:relative;line-height:0;z-index:1}
+.scene svg{width:100%;height:clamp(170px,42vw,480px);display:block}
+.sun{fill:var(--butter);animation:rise 18s var(--ease) both}
+.halo{fill:var(--butter);opacity:.35;transform-origin:center;transform-box:fill-box;animation:rise 18s var(--ease) both,breathe 9s ease-in-out infinite 2s}
+@keyframes rise{from{transform:translateY(120px)}}
+@keyframes breathe{50%{transform:scale(1.12);opacity:.22}}
+.cloud{fill:#fff;opacity:.55;animation:drift 70s linear infinite alternate}
+.cloud.b{animation-duration:95s;animation-delay:-30s}
+@keyframes drift{from{transform:translateX(-80px)}to{transform:translateX(80px)}}
+.contours{fill:none;stroke:var(--ink);stroke-opacity:.07;stroke-width:1;animation:sway 80s ease-in-out infinite alternate}
+@keyframes sway{to{transform:translateX(-60px)}}
+.ridge{transition:fill .6s}
+.trail{
+  fill:none;stroke:var(--coral-deep);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:1;stroke-dashoffset:1;
+  animation:draw 16s var(--ease) infinite 1.2s;
+}
+@keyframes draw{
+  0%{stroke-dashoffset:1;opacity:1}
+  45%{stroke-dashoffset:0;opacity:1}
+  78%{stroke-dashoffset:0;opacity:1}
+  88%{opacity:0}
+  100%{stroke-dashoffset:1;opacity:0}
+}
+.runner{
+  fill:var(--ink);
+  offset-path:path("M60 338 C150 300 220 322 320 272 C400 236 480 262 560 250 C640 240 720 206 800 230 C860 246 900 222 936 212");
+  offset-rotate:0deg;
+  animation:run 16s var(--ease) infinite 1.2s;
+}
+@keyframes run{
+  0%{offset-distance:0%;opacity:0}
+  3%{opacity:1}
+  45%{offset-distance:100%;opacity:1}
+  78%{offset-distance:100%;opacity:1}
+  88%{offset-distance:100%;opacity:0}
+  100%{offset-distance:0%;opacity:0}
+}
+.flag{fill:none;stroke:var(--coral-deep);stroke-width:2;transform-origin:center;transform-box:fill-box;animation:pulse 16s var(--ease) infinite 1.2s}
+@keyframes pulse{0%,40%{transform:scale(.4);opacity:0}48%{transform:scale(1.5);opacity:.8}60%{transform:scale(2.6);opacity:0}100%{opacity:0}}
+.peak{fill:var(--coral-deep)}
+
+/* work */
+.work{padding:clamp(2rem,6vw,4.5rem) 0;display:grid;gap:clamp(2rem,5vw,4rem);grid-template-columns:1fr}
+@media(min-width:760px){.work{grid-template-columns:1fr 1fr}}
+h2{
+  margin:0 0 1rem;font-size:.8rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)
+}
+.now{
+  background:#fff9;border:1px solid var(--line);border-radius:22px;padding:1.5rem;
+  display:block;transition:transform .6s var(--ease),box-shadow .6s;
+  position:relative;overflow:hidden;
+}
+.now:hover{transform:translateY(-3px);box-shadow:0 20px 40px -30px #38342f55}
+.now::after{
+  content:"";position:absolute;right:-60px;bottom:-80px;width:220px;height:220px;border-radius:50%;
+  background:var(--sage);opacity:.7;filter:blur(2px);
+  animation:breathe 10s ease-in-out infinite;transform-origin:center;
+}
+.now strong{display:block;font-size:1.6rem;font-weight:500;letter-spacing:-.02em;margin-bottom:.4rem}
+.now p{margin:0 0 .8rem;color:#5a554e;max-width:40ch;position:relative}
+.now .tag{font-size:.85rem;color:var(--mute);position:relative}
+.now .go{display:inline-block;margin-top:.5rem;color:var(--coral-deep);font-weight:500;position:relative}
+
+.before{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.before li{
+  display:grid;grid-template-columns:14px 1fr;gap:1rem;align-items:baseline;
+  padding:1rem 0;border-bottom:1px solid var(--line);
+}
+.before i{width:10px;height:10px;border-radius:50%;background:var(--c);display:inline-block;position:relative;top:-1px}
+.before b{font-weight:500}
+.before span{display:block;color:#5a554e;font-size:.95rem}
+.before small{color:var(--mute);font-size:.85rem}
+
+footer{
+  margin-top:auto;padding:2rem 0 2.5rem;color:var(--mute);font-size:.9rem;
+  display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between;align-items:center
+}
+footer a:hover{color:var(--ink)}
+
+.rev{opacity:0;transform:translateY(14px);animation:reveal 1.2s var(--ease) both}
+.rev.d1{animation-delay:.25s}.rev.d2{animation-delay:.45s}.rev.d3{animation-delay:.65s}.rev.d4{animation-delay:.9s}
+@keyframes reveal{to{opacity:1;transform:none}}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition:none!important}
+  .trail{stroke-dashoffset:0}.runner{offset-distance:100%;opacity:1}.flag{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <a class="brand" href="/" aria-label="kpricorn, home">
+    <svg class="k" viewBox="-8 -8 164 208" aria-hidden="true">
+      <circle cx="74" cy="96" r="8" style="--i:0;--dx:-8px;--dy:-82px"/>
+      <circle cx="96" cy="96" r="8" style="--i:1;--dx:11px;--dy:46px"/>
+      <circle cx="96" cy="74" r="8" style="--i:2;--dx:-78px;--dy:-102px"/>
+      <circle cx="96" cy="118" r="8" style="--i:3;--dx:47px;--dy:-96px"/>
+      <circle cx="118" cy="96" r="8" style="--i:4;--dx:3px;--dy:29px"/>
+      <circle cx="30" cy="74" r="8" style="--i:5;--dx:-76px;--dy:112px"/>
+      <circle cx="52" cy="52" r="8" style="--i:6;--dx:39px;--dy:-66px"/>
+      <circle cx="52" cy="140" r="8" style="--i:7;--dx:-81px;--dy:-98px"/>
+      <circle cx="118" cy="74" r="8" style="--i:8;--dx:21px;--dy:-13px"/>
+      <circle cx="118" cy="118" r="8" style="--i:9;--dx:-73px;--dy:-59px"/>
+      <circle cx="30" cy="52" r="8" style="--i:10;--dx:-67px;--dy:21px"/>
+      <circle cx="30" cy="140" r="8" style="--i:11;--dx:18px;--dy:-105px"/>
+      <circle cx="118" cy="52" r="8" style="--i:12;--dx:54px;--dy:-89px"/>
+      <circle cx="118" cy="140" r="8" style="--i:13;--dx:-33px;--dy:41px"/>
+      <circle cx="8" cy="96" r="8" style="--i:14;--dx:70px;--dy:29px"/>
+      <circle cx="74" cy="30" r="8" style="--i:15;--dx:-75px;--dy:27px"/>
+      <circle cx="74" cy="162" r="8" style="--i:16;--dx:59px;--dy:-19px"/>
+      <circle cx="140" cy="96" r="8" style="--i:17;--dx:-78px;--dy:-64px"/>
+      <circle cx="8" cy="74" r="8" style="--i:18;--dx:-79px;--dy:22px"/>
+      <circle cx="52" cy="30" r="8" style="--i:19;--dx:-56px;--dy:-46px"/>
+      <circle cx="52" cy="162" r="8" style="--i:20;--dx:17px;--dy:-84px"/>
+      <circle cx="140" cy="74" r="8" style="--i:21;--dx:48px;--dy:-90px"/>
+      <circle cx="140" cy="118" r="8" style="--i:22;--dx:56px;--dy:-42px"/>
+      <circle cx="8" cy="52" r="8" style="--i:23;--dx:53px;--dy:88px"/>
+      <circle cx="30" cy="30" r="8" style="--i:24;--dx:84px;--dy:-74px"/>
+      <circle cx="30" cy="162" r="8" style="--i:25;--dx:-64px;--dy:28px"/>
+      <circle cx="140" cy="52" r="8" style="--i:26;--dx:56px;--dy:43px"/>
+      <circle cx="140" cy="140" r="8" style="--i:27;--dx:-42px;--dy:-25px"/>
+      <circle cx="74" cy="8" r="8" style="--i:28;--dx:-66px;--dy:20px"/>
+      <circle cx="74" cy="184" r="8" style="--i:29;--dx:-74px;--dy:24px"/>
+      <circle cx="52" cy="8" r="8" style="--i:30;--dx:-75px;--dy:38px"/>
+      <circle cx="52" cy="184" r="8" style="--i:31;--dx:-38px;--dy:7px"/>
+      <circle cx="96" cy="8" r="8" style="--i:32;--dx:84px;--dy:16px"/>
+      <circle cx="96" cy="184" r="8" style="--i:33;--dx:19px;--dy:78px"/>
+      <circle cx="8" cy="30" r="8" style="--i:34;--dx:-10px;--dy:-1px"/>
+      <circle cx="8" cy="162" r="8" style="--i:35;--dx:59px;--dy:116px"/>
+      <circle cx="140" cy="30" r="8" style="--i:36;--dx:26px;--dy:-28px"/>
+      <circle cx="140" cy="162" r="8" style="--i:37;--dx:-14px;--dy:-57px"/>
+      <circle cx="30" cy="8" r="8" style="--i:38;--dx:-44px;--dy:58px"/>
+      <circle cx="30" cy="184" r="8" style="--i:39;--dx:-28px;--dy:-100px"/>
+      <circle cx="8" cy="8" r="8" style="--i:40;--dx:57px;--dy:-44px"/>
+      <circle cx="8" cy="184" r="8" style="--i:41;--dx:44px;--dy:6px"/>
+    </svg>
+    <span>kpricorn<small>Sebastian de Castelberg</small></span>
+  </a>
+  <span class="loc">Zürich, CH</span>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <h1 class="rev"><span class="hi">Hi, I’m Sebastian.</span><em>I build software and run up mountains.</em></h1>
+    <p class="lede rev d1">Software engineer, two decades in. Polyglot and pragmatic, self-taught and still curious.
+      These days all in on <b>LaceUp</b>, a platform for sports tours. Vim, Linux, coffee. Skis in winter.</p>
+    <ul class="links rev d2">
+      <li><a href="mailto:sebu@kpricorn.org" style="--c:var(--butter)"><i></i>Email</a></li>
+      <li><a href="https://github.com/kpricorn" rel="me" style="--c:var(--lilac)"><i></i>GitHub</a></li>
+      <li><a href="https://gitlab.com/kpricorn" rel="me" style="--c:var(--coral)"><i></i>GitLab</a></li>
+      <li><a href="https://linkedin.com/in/kpricorn" rel="me" style="--c:var(--sky)"><i></i>LinkedIn</a></li>
+      <li><a href="https://www.strava.com/athletes/9959175" rel="me" style="--c:var(--rose)"><i></i>Strava</a></li>
+    </ul>
+  </section>
+
+  <figure class="scene" aria-hidden="true">
+    <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice">
+      <circle class="halo" cx="960" cy="92" r="78"/>
+      <circle class="sun" cx="960" cy="92" r="46"/>
+      <g class="contours">
+        <path d="M-80 120 C120 80 260 140 420 100 S700 60 880 100 S1120 160 1300 110"/>
+        <path d="M-80 160 C120 120 260 180 420 140 S700 100 880 140 S1120 200 1300 150"/>
+        <path d="M-80 200 C120 160 260 220 420 180 S700 140 880 180 S1120 240 1300 190"/>
+        <path d="M-80 240 C120 200 260 260 420 220 S700 180 880 220 S1120 280 1300 230"/>
+      </g>
+      <g class="cloud"><ellipse cx="230" cy="118" rx="80" ry="16"/><ellipse cx="205" cy="106" rx="38" ry="18"/><ellipse cx="258" cy="102" rx="46" ry="22"/></g>
+      <g class="cloud b"><ellipse cx="660" cy="78" rx="96" ry="16"/><ellipse cx="628" cy="66" rx="40" ry="18"/><ellipse cx="690" cy="60" rx="52" ry="24"/></g>
+      <path class="ridge" fill="var(--lilac)" d="M0 250 C150 200 250 230 380 170 C480 120 560 160 660 150 C760 140 820 90 920 120 C1020 150 1100 200 1200 180 L1200 420 L0 420 Z"/>
+      <path class="ridge" fill="var(--sky)" d="M0 300 C120 260 200 300 320 250 C420 210 500 240 600 230 C700 220 780 180 880 220 C980 260 1080 240 1200 260 L1200 420 L0 420 Z"/>
+      <path class="ridge" fill="var(--sage)" d="M0 340 C100 320 220 350 340 320 C440 300 540 320 640 310 C740 300 860 260 960 300 C1040 330 1120 320 1200 330 L1200 420 L0 420 Z"/>
+      <path class="trail" pathLength="1" d="M60 338 C150 300 220 322 320 272 C400 236 480 262 560 250 C640 240 720 206 800 230 C860 246 900 222 936 212"/>
+      <circle class="flag" cx="936" cy="212" r="8"/>
+      <circle class="peak" cx="936" cy="212" r="4"/>
+      <circle class="runner" r="5"/>
+      <path class="ridge" fill="var(--sand)" d="M0 390 C120 370 240 400 400 380 C520 365 620 385 760 370 C880 360 1000 380 1200 370 L1200 420 L0 420 Z"/>
+    </svg>
+  </figure>
+
+  <section class="wrap work">
+    <div class="rev d3">
+      <h2>Now</h2>
+      <a class="now" href="https://laceup.io">
+        <strong>LaceUp</strong>
+        <p>Sports tours, real and virtual: Strava and Garmin sync, GPS track matching, rankings, badges and photo proofs. Born as Tour d’Uetli, a trail‑running stage race on Zürich’s local hill.</p>
+        <span class="tag">Symfony · PostgreSQL · a lot of GPX</span><br>
+        <span class="go">laceup.io →</span>
+      </a>
+    </div>
+    <div class="rev d4">
+      <h2>Before</h2>
+      <ul class="before">
+        <li style="--c:var(--sky)"><i></i><div><b>Swisscom Online Identification</b><span>SaaS for banks’ digital customer onboarding by video. Designed it, led the team, kept it shipping.</span><small>PHP · Symfony · WebRTC</small></div></li>
+        <li style="--c:var(--rose)"><i></i><div><b>Swisscom Crowdfunding</b><span>letshelp.ch and a white‑label crowdfunding platform as a service.</span><small>Ruby on Rails · PostgreSQL</small></div></li>
+        <li style="--c:var(--lilac)"><i></i><div><b>Rayneer TV</b><span>Personalised music television: streaming, transcoding, playlist generation.</span><small>Ruby · Go · HLS</small></div></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Sebastian de Castelberg</span>
+  <span><a href="https://github.com/kpricorn/kpricorn.org">Source</a> · built by hand, no trackers</span>
+</footer>
+
+</body>
+</html>
