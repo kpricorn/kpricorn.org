@@ -1,19 +1,15 @@
 #!/bin/sh
-
+# Publish the page to kpricorn.github.io (the `public` submodule).
+#   git submodule update --init public   # once
+#   ./deploy.sh [commit message]
 set -e
 
-printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
-
-hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
+cd "$(dirname "$0")"
+cp index.html 404.html favicon.svg public/
 
 cd public
-
-git add .
-
+git add -A
 msg="rebuilding site $(date)"
-if [ -n "$*" ]; then
-  msg="$*"
-fi
+[ -n "$*" ] && msg="$*"
 git commit -m "$msg"
-
 git push origin master

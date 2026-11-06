@@ -1,10 +1,4 @@
-[submodule "themes/hugo-whisper-theme"]
-	path = themes/hugo-whisper-theme
-	url = https://github.com/jugglerx/hugo-whisper-theme.git
 [submodule "public"]
 	path = public
 	url = git@github.com:kpricorn/kpricorn.github.io.git
 	branch = master
-[submodule "themes/book"]
-	path = themes/book
-	url = https://github.com/alex-shpak/hugo-book
