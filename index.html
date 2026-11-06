@@ -68,12 +68,9 @@ header{position:relative;z-index:3;display:flex;align-items:center;justify-conte
 .clock{color:var(--mute);font-size:.9rem;font-variant-numeric:tabular-nums;text-align:right}
 .clock b{font-weight:500;color:var(--ink)}
 
-.display{
-  position:relative;z-index:2;flex:1;display:grid;place-items:center;
-  padding:clamp(.5rem,2vw,1.5rem) 0;
-}
+.display{position:absolute;inset:0;z-index:1}
 .display svg{
-  width:min(760px,100%,calc(100svh - 420px));aspect-ratio:28/18;height:auto;overflow:visible;
+  position:absolute;inset:0;width:100%;height:100%;display:block;
   cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
 }
 .display circle{
@@ -92,10 +89,11 @@ header{position:relative;z-index:3;display:flex;align-items:center;justify-conte
 .display circle.w{fill:#fff}
 .display circle.i{fill:var(--ink)}
 .display circle.u{fill:var(--mute)}
-.caption{position:absolute;left:50%;bottom:.2rem;transform:translateX(-50%);font-size:.8rem;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.caption{position:absolute;left:50%;top:0;transform:translateX(-50%);font-size:.8rem;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;pointer-events:none}
 .caption span{display:inline-block;min-width:8ch;text-align:center;transition:opacity .4s}
 
-.words{position:relative;z-index:3;padding:1rem 0 clamp(1.5rem,4vh,3rem)}
+.words{position:relative;z-index:3;margin-top:auto;padding:1rem 0 clamp(1.5rem,4vh,3rem);pointer-events:none}
+.words a{pointer-events:auto}
 .eyebrow{margin:0 0 .6rem;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
 h1{
   margin:0 0 1rem;font-weight:500;letter-spacing:-.04em;line-height:.98;
@@ -165,8 +163,12 @@ footer a:hover{color:var(--ink)}
 @keyframes reveal{to{opacity:1;transform:none}}
 
 @media(max-width:640px){
-  .display svg{width:min(100%,calc(100svh - 470px));min-width:220px}
   .legend{position:static;padding:.6rem 0 0}
+}
+@media(max-height:760px){
+  h1{font-size:clamp(2.2rem,5.2vw,4.2rem)}
+  .lede{font-size:1rem;max-width:60ch;margin-bottom:1rem}
+  .words{padding-bottom:1.2rem}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.2s!important}
@@ -194,9 +196,9 @@ footer a:hover{color:var(--ink)}
     <div class="clock"><b id="time">Zürich</b><br><span id="phase">Switzerland</span></div>
   </header>
 
-  <div class="display wrap" id="display">
-    <svg viewBox="0 0 280 180" id="matrix" role="img" aria-label="A dot-matrix display cycling through a k, a greeting, a mountain, a runner, a skier, a coffee and a heart. Tap to advance."></svg>
-    <div class="caption" aria-hidden="true"><span id="cap"></span></div>
+  <div class="display" id="display">
+    <svg id="matrix" role="img" aria-label="A dot-matrix display across the whole screen, cycling through a k, a greeting, a mountain, a runner, a skier, a coffee and a heart. Tap to advance."></svg>
+    <div class="caption" id="caption" aria-hidden="true"><span id="cap"></span></div>
   </div>
 
   <div class="words wrap">
@@ -295,40 +297,62 @@ footer a:hover{color:var(--ink)}
   }
 
   /* the dot-matrix display */
-  const GLYPHS = [["k",".......oooooooooo..................oooooooooo..................oooooooo....oo..............oooooooo....oo..............oooooo....oooo..............oooooo....oooo..............oooo....oooooo..............oooo....oooooo..............oo....oooooooo..............oo....oooooooo......................oooooo......................oooooo................oooo....oooo................oooo....oooo..............oooooooo....oo..............oooooooo....oo..............oooooooooo..................oooooooooo..........."],["hi","..........................................................oo......oo....oooooooooo....oo......oo....oooooooooo....oo......oo........oo........oo......oo........oo........oo......oo........oo........oo......oo........oo........oooooooooo........oo........oooooooooo........oo........oo......oo........oo........oo......oo........oo........oo......oo........oo........oo......oo........oo........oo......oo....oooooooooo....oo......oo....oooooooooo.........................................................."],["mountain","..................................................yy.........................yyyy........................yyyy.................ww......yy.................wwww.......................wwwwww.....................mmmmmmmm....gg.............mmmmmmmmmm..gggg...........mmmmmmmmmmmm.gggggg....gg..mmmmmmmmmmmmmmgggggg...gggg.mmmmmmmmmmmmmmgggggg..ggggggmmmmmmmmmmmmmmmggggg.ggggggggmmmmmmmmmmmmmmmggggggggggggggmmmmmmmmmmmmmmmggggggggggggggmmmmmmmmmmmmmmmgg........................................................"],["runner","...........................................iiii........................iiii.........................ii....................iiiiiiiii..................ii..iiii.ii................ii...iiii..ii..................iiiiii...ii.................iiiiii.....................iii.iii....................ii....iii..................ii......iii...............iii........iii.............ii...........iii...........ii.............iii.........iii...............ii............................................................."],["skier",".........................................iiii........................iiii.........................ii.....................iiiiiiiiii.................ii..iiii..ii...............ii...iiii...ii.............ii....iiii....ii...........ii.....iiii.....ii.................iiii......................iii.iii....................iii...iii..................iii.....iii................iii.......iii..........ssssssssssss...sssssssss...ssssssssssss...sssssssss..........................................................."],["coffee",".......................................u...u...u..................u...u...u....................u...u...u..........................................oooooooooooooooo............oooooooooooooooooo..........oooooooooooooooo.oo.........oooooooooooooooo..oo........oooooooooooooooo..oo........oooooooooooooooo.oo..........oooooooooooooooo.............oooooooooooooo...............oooooooooooo.................oooooooooo...............yyyyyyyyyyyyyyyy............................................................."],["heart","...............................................................rrrr.....rrrr..............rrrrrr...rrrrrr............rrrrrrrr.rrrrrrrr...........rrrrrrrrrrrrrrrrr...........rrrrrrrrrrrrrrrrr...........rrrrrrrrrrrrrrrrr............rrrrrrrrrrrrrrr..............rrrrrrrrrrrrr................rrrrrrrrrrr..................rrrrrrrrr....................rrrrrrr......................rrrrr........................rrr..........................r......................................................................"]], W = 28, H = 18, matrix = $('#matrix'), dots = [];
+  /* the whole hero is the display: a grid sized from the viewport, the 28 × 18 glyph in the room between header and words */
+  const GLYPHS = [["k",".......oooooooooo..................oooooooooo..................oooooooo....oo..............oooooooo....oo..............oooooo....oooo..............oooooo....oooo..............oooo....oooooo..............oooo....oooooo..............oo....oooooooo..............oo....oooooooo......................oooooo......................oooooo................oooo....oooo................oooo....oooo..............oooooooo....oo..............oooooooo....oo..............oooooooooo..................oooooooooo..........."],["hi","..........................................................oo......oo....oooooooooo....oo......oo....oooooooooo....oo......oo........oo........oo......oo........oo........oo......oo........oo........oo......oo........oo........oooooooooo........oo........oooooooooo........oo........oo......oo........oo........oo......oo........oo........oo......oo........oo........oo......oo........oo........oo......oo....oooooooooo....oo......oo....oooooooooo.........................................................."],["mountain","..................................................yy.........................yyyy........................yyyy.................ww......yy.................wwww.......................wwwwww.....................mmmmmmmm....gg.............mmmmmmmmmm..gggg...........mmmmmmmmmmmm.gggggg....gg..mmmmmmmmmmmmmmgggggg...gggg.mmmmmmmmmmmmmmgggggg..ggggggmmmmmmmmmmmmmmmggggg.ggggggggmmmmmmmmmmmmmmmggggggggggggggmmmmmmmmmmmmmmmggggggggggggggmmmmmmmmmmmmmmmgg........................................................"],["runner","...........................................iiii........................iiii.........................ii....................iiiiiiiii..................ii..iiii.ii................ii...iiii..ii..................iiiiii...ii.................iiiiii.....................iii.iii....................ii....iii..................ii......iii...............iii........iii.............ii...........iii...........ii.............iii.........iii...............ii............................................................."],["skier",".........................................iiii........................iiii.........................ii.....................iiiiiiiiii.................ii..iiii..ii...............ii...iiii...ii.............ii....iiii....ii...........ii.....iiii.....ii.................iiii......................iii.iii....................iii...iii..................iii.....iii................iii.......iii..........ssssssssssss...sssssssss...ssssssssssss...sssssssss..........................................................."],["coffee",".......................................u...u...u..................u...u...u....................u...u...u..........................................oooooooooooooooo............oooooooooooooooooo..........oooooooooooooooo.oo.........oooooooooooooooo..oo........oooooooooooooooo..oo........oooooooooooooooo.oo..........oooooooooooooooo.............oooooooooooooo...............oooooooooooo.................oooooooooo...............yyyyyyyyyyyyyyyy............................................................."],["heart","...............................................................rrrr.....rrrr..............rrrrrr...rrrrrr............rrrrrrrr.rrrrrrrr...........rrrrrrrrrrrrrrrrr...........rrrrrrrrrrrrrrrrr...........rrrrrrrrrrrrrrrrr............rrrrrrrrrrrrrrr..............rrrrrrrrrrrrr................rrrrrrrrrrr..................rrrrrrrrr....................rrrrrrr......................rrrrr........................rrr..........................r......................................................................"]], W = 28, H = 18, matrix = $('#matrix'), hero = $('.hero');
   const CAP = { k: 'kpricorn', hi: 'hello', mountain: 'up', runner: 'and back down', skier: 'when it snows', coffee: 'fuel', heart: 'home' };
-  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
-    const c = el('circle', { cx: x * 10 + 5, cy: y * 10 + 5 });
-    c.style.setProperty('--d', (Math.random() * 420) | 0);
-    matrix.append(c); dots.push(c);
+  let dots = [], cols = 0, rows = 0, pitch = 10, gx = 0, gy = 0, g = -1, timer;
+  function build() {
+    const w = hero.clientWidth, h = hero.clientHeight;
+    const top = $('header').offsetHeight, bottom = $('.words').offsetTop;
+    pitch = Math.max(14, Math.min(w * 0.92 / W, (bottom - top) * 0.9 / H, 44));
+    const c = Math.ceil(w / pitch) + 1, r = Math.ceil(h / pitch) + 1;
+    if (c === cols && r === rows) return;
+    cols = c; rows = r;
+    matrix.setAttribute('viewBox', `0 0 ${cols * 10} ${rows * 10}`);
+    matrix.setAttribute('preserveAspectRatio', 'xMinYMin slice');
+    matrix.replaceChildren(); dots = [];
+    for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
+      const d = el('circle', { cx: x * 10 + 5, cy: y * 10 + 5 });
+      d.style.setProperty('--d', (Math.random() * 420) | 0);
+      matrix.append(d); dots.push(d);
+    }
+    gx = Math.round((cols - W) / 2);
+    gy = Math.round((top + (bottom - top - H * pitch) / 2) / pitch);
+    $('#caption').style.top = ((gy + H) * pitch + 4) + 'px';
+    if (g >= 0) show(g, true);
   }
-  let g = -1, timer;
-  function show(n) {
+  function show(n, silent) {
     g = (n + GLYPHS.length) % GLYPHS.length;
     const [name, bits] = GLYPHS[g];
-    dots.forEach((c, i) => { const ch = bits[i]; c.setAttribute('class', ch === '.' ? '' : 'on ' + ch); });
+    for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
+      const bx = x - gx, by = y - gy, ch = bx >= 0 && bx < W && by >= 0 && by < H ? bits[by * W + bx] : '.';
+      dots[y * cols + x].setAttribute('class', ch === '.' ? '' : 'on ' + ch);
+    }
+    if (silent) return;
     const cap = $('#cap'); cap.style.opacity = 0;
     setTimeout(() => { cap.textContent = CAP[name] || name; cap.style.opacity = 1; }, 350);
   }
   function cycle() { clearInterval(timer); timer = setInterval(() => show(g + 1), 3400); }
-  show(0); cycle();
+  build(); show(0); cycle();
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(build, 150); });
   matrix.addEventListener('click', () => { show(g + 1); cycle(); });
   /* dots bulge under the pointer */
   let px = -1e3, py = -1e3, raf = 0;
   const bulge = () => {
     raf = 0;
+    const R = 38;
     for (const c of dots) {
       const dx = c.cx.baseVal.value - px, dy = c.cy.baseVal.value - py, d = Math.hypot(dx, dy);
-      c.style.transform = d < 38 ? `scale(${1 + (1 - d / 38) * 1.9})` : '';
+      c.style.transform = d < R ? `scale(${1 + (1 - d / R) * 1.9})` : '';
     }
   };
-  matrix.addEventListener('pointermove', e => {
+  hero.addEventListener('pointermove', e => {
     if (reduced) return;
     const r = matrix.getBoundingClientRect();
-    px = (e.clientX - r.left) / r.width * 280; py = (e.clientY - r.top) / r.height * 180;
+    px = (e.clientX - r.left) / pitch * 10; py = (e.clientY - r.top) / pitch * 10;
     raf ||= requestAnimationFrame(bulge);
   });
-  matrix.addEventListener('pointerleave', () => { px = py = -1e3; bulge(); });
+  hero.addEventListener('pointerleave', () => { px = py = -1e3; bulge(); });
 
   /* the sky follows Zürich */
   const orb = $('#orb');
